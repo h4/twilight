@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Twilight plugin sample page</title>
+    <link rel="stylesheet" href="css/twilight.css"/>
+</head>
+<body>
+<div class="twilight">
+    <div class="twilight__text">
+        Чайковский
+    </div>
+    <div class="twilight__image-box">
+        <img src="img/1.jpg" alt="" class="twilight__image_cover_yes" />
+        <img src="img/2.jpg" alt=""/>
+    </div>
+</div>
+<div class="twilight">
+    <div>
+        <div class="twilight__text">
+            Дон
+        </div>
+        <div class="twilight__text" style="top: 32px; left: 32px;">
+            Жуан
+        </div>
+        <div class="twilight__text" style="font-size: 11px; top: 57px; color: #CCC;">
+            или Страсти
+        </div>
+        <div class="twilight__text"  style="font-size: 11px; top: 68px; left: 34px; color: #CCC;">
+            по Мольеру
+        </div>
+    </div>
+    <div class="twilight__image-box">
+        <img src="img/3.png" alt="" class="twilight__image_cover_yes" />
+        <img src="img/4.png" alt=""/>
+    </div>
+</div>
+<script src="vendor/jQuery/dist/jquery.js"></script>
+<script src="vendor/lodash/dist/lodash.compat.js"></script>
+<script src="js/twilight.js"></script>
+<script>
+    $(function() {
+        $('.twilight').twilight();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    background: #000;
+}
+
+.twilight {
+    position: relative;
+    float: left;
+}
+
+.twilight__text {
+    font-size: 26px;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+    color: #FFF;
+}
+
+.twilight__letter {
+    opacity: 0;
+}
+
+.twilight__image-box {
+    position: relative;
+}
+
+.twilight__image_cover_yes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
