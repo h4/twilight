@@ -1,0 +1,22 @@
+{
+  "name": "twilight",
+  "version": "0.0.0",
+  "authors": [
+    "Mikhail Baranov <mikhail.baranov@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "1.11.1"
+  }
+}
