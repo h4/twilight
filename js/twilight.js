@@ -21,6 +21,7 @@
         this.init = function() {
             this.$cover = $('.twilight__image_cover_yes', $root);
             this.$text = $('.twilight__text', $root);
+            this.$handler = $('.twilight__handler', $root);
 
             this._setupText();
             this._bind();
@@ -28,7 +29,9 @@
         };
 
         this._bind = function() {
-            $root
+            var handler = this.$handler.length ? this.$handler : $root;
+
+            handler
                 .on('mouseenter', $.proxy(this.sunrise, this))
                 .on('mouseleave', $.proxy(this.sunset, this));
         };
@@ -42,16 +45,19 @@
                 })
             });
             this.$letters = $('.twilight__letter', this.$text);
+            this.$text.hide();
         };
 
         this.sunrise = function() {
+            this.$text.show();
+
             this._animateCover(1);
             this._animateLetters(1);
         };
 
         this.sunset = function() {
             this._animateCover(0);
-            this._animateLetters(0);
+            this._animateLetters(0).done($.proxy(this.$text.hide, this.$text));
         };
 
         this._animateCover = function(opacity) {
@@ -63,14 +69,25 @@
         };
 
         this._animateLetters = function(opacity) {
-            this.$letters.each(function() {
+            var dfd = $.Deferred();
+
+            $.when.apply($, this.$letters.map(function() {
+                var dfd = $.Deferred();
+
                 $(this).stop().animate({
                     opacity: opacity
                 }, {
+                    complete: function() {
+                        dfd.resolve();
+                    },
                     duration: Math.random() * params.textDuration,
                     queue: false
-                })
-            });
+                });
+
+                return dfd.promise();
+            })).then(dfd.resolve);
+
+            return dfd.promise();
         }
     };
 
